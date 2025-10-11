@@ -58,7 +58,7 @@ const Publications = () => {
       </section>
       <FeaturedEventsSection />
       {/* Publications Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gray-900 text-white mx-[3rem]">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-center mb-16">
             Unlock the power of Sustainability
