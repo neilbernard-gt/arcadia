@@ -5,14 +5,17 @@ import { Menu, ChevronRight, LogOut } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const Header = ({ isHomePage = false }) => {
+const Header = ({ isHomePage = false, homesection = false }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { user, logout, isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      // Trigger effect only when scrolled past half the screen height (50vh)
+      const halfScreenHeight = window.innerHeight;
+
+      if (window.scrollY > halfScreenHeight) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -25,13 +28,19 @@ const Header = ({ isHomePage = false }) => {
     };
   }, []);
 
-  const headerClass = isHomePage
-    ? "absolute top-0 left-0 w-full z-20 px-6 py-4"
-    : `fixed top-0 left-0 w-full z-20 px-6 py-4 ${
-        scrolled ? "bg-white shadow-md" : "bg-white"
-      } transition-all duration-300`;
+  // Activates the effect if either homesection OR isHomePage is true
+  const isTransparentAtTop = homesection || isHomePage;
 
-  const textColor = isHomePage && !scrolled ? "text-white" : "text-gray-800";
+  const headerClass = isTransparentAtTop
+    ? `fixed top-0 left-0 w-full z-20 px-6 py-4 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`
+    : `fixed top-0 left-0 w-full z-20 px-6 py-4 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-white"
+      }`;
+
+  const textColor =
+    isTransparentAtTop && !scrolled ? "text-white" : "text-gray-800";
 
   const handleLogout = () => {
     logout();

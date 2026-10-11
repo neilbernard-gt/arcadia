@@ -22,7 +22,7 @@ const EventCarousel = () => {
       description:
         "TechCycle Project is designed to address the complex challenges posed by discarded electronic devices. Through partnerships with technology companies, recyclers, and regulatory bodies, Arcadia works to develop sustainable e-waste management solutions that emphasize recycling, reuse, and responsible disposal.",
       image:
-        "https://images.squarespace-cdn.com/content/v1/5b1daec7f93fd44d70cddd9c/1565828886203-OS7SZ5LSNWKL8A140CHS/Supporting+Families.jpg",
+        "https://img.apmcdn.org/ca04f4b98104705c27c4163f9b8a8a56d5809379/uncropped/4767b4-20151204-mike-banks.jpg",
       buttonText: "Register now",
     },
     {
@@ -48,7 +48,7 @@ const EventCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

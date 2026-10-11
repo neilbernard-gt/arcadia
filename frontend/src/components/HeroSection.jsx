@@ -20,7 +20,7 @@ const HeroSection = () => {
       </video>
       <div className="absolute inset-0 bg-black/40 z-10"></div>
       {/* Navigation */}
-      <Header isHomePage={true} />
+      <Header isHomePage={true} homesection={true} />
 
       {/* Hero Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">

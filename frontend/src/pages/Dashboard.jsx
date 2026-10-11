@@ -19,6 +19,9 @@ const Dashboard = () => {
     if (!isAuthenticated) {
       navigate("/login");
     }
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
   }, [isAuthenticated, navigate]);
 
   if (!user) {
