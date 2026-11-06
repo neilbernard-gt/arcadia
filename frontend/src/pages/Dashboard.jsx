@@ -7,8 +7,8 @@ import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 import { LogOut, User, Calendar, FileText, Settings } from "lucide-react";
 import DashboardEvents from "../components/DashboardEvents";
-import DashboardPublications from "../components/DashboardPublications";
-import DashboardSettings from "../components/DashboardSettings";
+//import DashboardPublications from "../components/DashboardPublications";
+//import DashboardSettings from "../components/DashboardSettings";
 
 const Dashboard = () => {
   const { user, logout, isAuthenticated } = useAuth();
@@ -45,7 +45,7 @@ const Dashboard = () => {
         return (
           <div className="bg-white shadow-md p-8">
             <h2 className="text-2xl font-serif font-bold mb-6">
-              Welcome to your Dashboard 2
+              Welcome to your Dashboard
             </h2>
 
             <div className="mb-8">
