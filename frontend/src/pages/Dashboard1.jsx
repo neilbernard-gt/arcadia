@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 import { LogOut, User, Calendar, FileText, Settings } from "lucide-react";
 import DashboardEvents from "../components/DashboardEvents";
+import DashboardPublications from "../components/DashboardPublications";
+import DashboardSettings from "../components/DashboardSettings";
 
 const Dashboard = () => {
   const { user, logout, isAuthenticated } = useAuth();
@@ -16,6 +18,9 @@ const Dashboard = () => {
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
+    }
+    if (isAuthenticated) {
+      navigate("/dashboard");
     }
   }, [isAuthenticated, navigate]);
 
@@ -33,14 +38,14 @@ const Dashboard = () => {
       case "events":
         return <DashboardEvents />;
       case "publications":
-        return <DashboardEvents />;
+        return <DashboardPublications />;
       case "settings":
-        return <DashboardEvents />;
+        return <DashboardSettings user={user} />;
       default:
         return (
           <div className="bg-white shadow-md p-8">
             <h2 className="text-2xl font-serif font-bold mb-6">
-              Welcome to your Dashboard 2
+              Welcome to your Dashboard
             </h2>
 
             <div className="mb-8">
